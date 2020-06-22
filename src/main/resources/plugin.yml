@@ -1,0 +1,7 @@
+name: ${name}
+version: ${version}
+main: net.justminecraft.plots.voxelsniper.JustPlotsVoxelSniper
+author: PureGero
+api-version: 1.13
+depend: [JustPlots, VoxelSniper]
+website: https://github.com/PureGero/JustPlots-VoxelSniper
