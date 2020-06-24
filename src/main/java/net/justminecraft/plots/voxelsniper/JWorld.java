@@ -39,12 +39,12 @@ public class JWorld implements World {
     }
 
     @Override
-    public Block getBlockAt(int x, int y, int z) {
+    public JBlock getBlockAt(int x, int y, int z) {
         return new JBlock(this, getRealWorld().getBlockAt(x, y, z));
     }
 
     @Override
-    public Block getBlockAt(Location location) {
+    public JBlock getBlockAt(Location location) {
         return new JBlock(this, getRealWorld().getBlockAt(location));
     }
 
@@ -283,7 +283,10 @@ public class JWorld implements World {
 
     @Override
     public LightningStrike strikeLightning(Location loc) {
-        throw new UnsupportedOperationException();
+        if (getBlockAt(loc).canModifiy()) {
+            return getRealWorld().strikeLightning(loc);
+        }
+        return null;
     }
 
     @Override

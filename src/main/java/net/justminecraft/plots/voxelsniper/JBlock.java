@@ -25,7 +25,7 @@ public class JBlock implements Block {
         this.block = block;
     }
 
-    private boolean canModifiy() {
+    public boolean canModifiy() {
         if (JustPlots.isPlotWorld(block.getWorld())) {
             Plot plot = JustPlots.getPlotAt(block.getLocation());
 
@@ -214,7 +214,11 @@ public class JBlock implements Block {
 
     @Override
     public boolean isLiquid() {
-        throw new UnsupportedOperationException();
+        if (canModifiy()) {
+            return block.isLiquid();
+        } else {
+            return false;
+        }
     }
 
     @Override
