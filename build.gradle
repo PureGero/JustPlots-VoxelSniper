@@ -17,6 +17,9 @@ repositories {
   maven {
     url "https://raw.githubusercontent.com/PureGero/JustPlots-VoxelSniper/repository/"
   }
+  maven {
+    url "https://oss.sonatype.org/content/repositories/snapshots"
+  }
 }
 
 version = "1.0.0"
@@ -31,7 +34,7 @@ configurations {
 // Use the shade configuration to include the dependency's class files in your final JAR
 
 dependencies {
-  compileOnly "org.spigotmc:spigot:$bukkit_version"
+  compileOnly "org.spigotmc:spigot-api:$bukkit_version"
   compileOnly "just.plots:justplots:0.9.3"
   compileOnly "com.thevoxelbox:VoxelSniper:6.1.2"
 }
