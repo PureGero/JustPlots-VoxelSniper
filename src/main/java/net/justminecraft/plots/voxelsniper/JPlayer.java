@@ -629,9 +629,7 @@ public class JPlayer implements Player {
 
     @Override
     public Location getLocation() {
-        Location location = player.getLocation();
-        location.setWorld(getWorld());
-        return location;
+        return new JLocation(getWorld(), player.getLocation());
     }
 
     @Override
@@ -701,12 +699,23 @@ public class JPlayer implements Player {
 
     @Override
     public List<Entity> getNearbyEntities(double x, double y, double z) {
-        throw new UnsupportedOperationException();
+        List<Entity> entities = player.getNearbyEntities(x, y, z);
+
+        List<Entity> newEntities = new ArrayList<>();
+
+        // Filter out non modifiable entities
+        for (Entity entity : entities) {
+            if (getWorld().getBlockAt(entity.getLocation()).canModifiy()) {
+                newEntities.add(entity);
+            }
+        }
+
+        return newEntities;
     }
 
     @Override
     public int getEntityId() {
-        throw new UnsupportedOperationException();
+        return player.getEntityId();
     }
 
     @Override
@@ -766,27 +775,27 @@ public class JPlayer implements Player {
 
     @Override
     public Entity getPassenger() {
-        throw new UnsupportedOperationException();
+        return player.getPassenger();
     }
 
     @Override
     public boolean setPassenger(Entity passenger) {
-        throw new UnsupportedOperationException();
+        return player.setPassenger(passenger);
     }
 
     @Override
     public List<Entity> getPassengers() {
-        throw new UnsupportedOperationException();
+        return player.getPassengers();
     }
 
     @Override
     public boolean addPassenger(Entity passenger) {
-        throw new UnsupportedOperationException();
+        return player.addPassenger(passenger);
     }
 
     @Override
     public boolean removePassenger(Entity passenger) {
-        throw new UnsupportedOperationException();
+        return player.removePassenger(passenger);
     }
 
     @Override

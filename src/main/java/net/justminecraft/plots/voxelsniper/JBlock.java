@@ -116,9 +116,7 @@ public class JBlock implements Block {
 
     @Override
     public Location getLocation() {
-        Location location = block.getLocation();
-        location.setWorld(getWorld());
-        return location;
+        return new JLocation(getWorld(), block.getLocation());
     }
 
     @Override

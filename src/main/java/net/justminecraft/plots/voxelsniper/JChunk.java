@@ -57,7 +57,9 @@ public class JChunk implements Chunk {
 
         for (i = 0; i < entities.length; i ++) {
             if (!world.getBlockAt(entities[i].getLocation()).canModifiy()) {
-                System.arraycopy(entities, j + 1, entities, j, entities.length - j - i);
+                if (j + 1 < entities.length) {
+                    System.arraycopy(entities, j + 1, entities, j, entities.length - j - i);
+                }
             } else {
                 j ++;
             }
