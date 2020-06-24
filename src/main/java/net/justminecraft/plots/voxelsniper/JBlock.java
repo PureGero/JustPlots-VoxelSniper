@@ -39,7 +39,11 @@ public class JBlock implements Block {
 
     @Override
     public byte getData() {
-        throw new UnsupportedOperationException();
+        if (canModifiy()) {
+            return block.getData();
+        }
+
+        return 0;
     }
 
     @Override
@@ -175,32 +179,56 @@ public class JBlock implements Block {
 
     @Override
     public boolean isBlockPowered() {
-        throw new UnsupportedOperationException();
+        if (canModifiy()) {
+            return block.isBlockPowered();
+        }
+
+        return false;
     }
 
     @Override
     public boolean isBlockIndirectlyPowered() {
-        throw new UnsupportedOperationException();
+        if (canModifiy()) {
+            return block.isBlockIndirectlyPowered();
+        }
+
+        return false;
     }
 
     @Override
     public boolean isBlockFacePowered(BlockFace face) {
-        throw new UnsupportedOperationException();
+        if (canModifiy()) {
+            return block.isBlockFacePowered(face);
+        }
+
+        return false;
     }
 
     @Override
     public boolean isBlockFaceIndirectlyPowered(BlockFace face) {
-        throw new UnsupportedOperationException();
+        if (canModifiy()) {
+            return block.isBlockFaceIndirectlyPowered(face);
+        }
+
+        return false;
     }
 
     @Override
     public int getBlockPower(BlockFace face) {
-        throw new UnsupportedOperationException();
+        if (canModifiy()) {
+            return block.getBlockPower(face);
+        }
+
+        return 0;
     }
 
     @Override
     public int getBlockPower() {
-        throw new UnsupportedOperationException();
+        if (canModifiy()) {
+            return block.getBlockPower();
+        }
+
+        return 0;
     }
 
     @Override
