@@ -128,7 +128,7 @@ public class JBlock implements Block {
 
     @Override
     public Chunk getChunk() {
-        throw new UnsupportedOperationException();
+        return world.getChunkAt(this);
     }
 
     @Override

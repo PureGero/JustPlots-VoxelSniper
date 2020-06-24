@@ -90,17 +90,17 @@ public class JWorld implements World {
 
     @Override
     public Chunk getChunkAt(int x, int z) {
-        throw new UnsupportedOperationException();
+        return new JChunk(this, getRealWorld().getChunkAt(x, z));
     }
 
     @Override
     public Chunk getChunkAt(Location location) {
-        throw new UnsupportedOperationException();
+        return new JChunk(this, getRealWorld().getChunkAt(location));
     }
 
     @Override
     public Chunk getChunkAt(Block block) {
-        throw new UnsupportedOperationException();
+        return new JChunk(this, getRealWorld().getChunkAt(block));
     }
 
     @Override
@@ -546,12 +546,18 @@ public class JWorld implements World {
 
     @Override
     public <T extends Entity> T spawn(Location location, Class<T> clazz) throws IllegalArgumentException {
-        throw new UnsupportedOperationException();
+        if (getBlockAt(location).canModifiy()) {
+            return getRealWorld().spawn(location, clazz);
+        }
+        return null;
     }
 
     @Override
     public <T extends Entity> T spawn(Location location, Class<T> clazz, Consumer<T> function) throws IllegalArgumentException {
-        throw new UnsupportedOperationException();
+        if (getBlockAt(location).canModifiy()) {
+            return getRealWorld().spawn(location, clazz, function);
+        }
+        return null;
     }
 
     @Override
