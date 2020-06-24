@@ -800,12 +800,12 @@ public class JPlayer implements Player {
 
     @Override
     public boolean isEmpty() {
-        throw new UnsupportedOperationException();
+        return player.isEmpty();
     }
 
     @Override
     public boolean eject() {
-        throw new UnsupportedOperationException();
+        return player.eject();
     }
 
     @Override
