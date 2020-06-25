@@ -1625,22 +1625,22 @@ public class JPlayer implements Player {
 
     @Override
     public void setMetadata(String metadataKey, MetadataValue newMetadataValue) {
-        throw new UnsupportedOperationException();
+        player.setMetadata(metadataKey, newMetadataValue);
     }
 
     @Override
     public List<MetadataValue> getMetadata(String metadataKey) {
-        throw new UnsupportedOperationException();
+        return player.getMetadata(metadataKey);
     }
 
     @Override
     public boolean hasMetadata(String metadataKey) {
-        throw new UnsupportedOperationException();
+        return player.hasMetadata(metadataKey);
     }
 
     @Override
     public void removeMetadata(String metadataKey, Plugin owningPlugin) {
-        throw new UnsupportedOperationException();
+        player.removeMetadata(metadataKey, owningPlugin);
     }
 
     @Override
