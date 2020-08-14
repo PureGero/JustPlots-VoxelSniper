@@ -1325,7 +1325,7 @@ public class JPlayer implements Player {
 
     @Override
     public Block getTargetBlock(Set<Material> transparent, int maxDistance) {
-        throw new UnsupportedOperationException();
+        return new JBlock(getWorld(), player.getTargetBlock(transparent, maxDistance));
     }
 
     @Override
