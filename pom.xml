@@ -5,8 +5,8 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>net.justminecraft.plots.voxelsniper</groupId>
-    <artifactId>JustPlots-VoxelSniper</artifactId>
-    <version>1.0.1</version>
+    <artifactId>justplots-voxelsniper</artifactId>
+    <version>1.0.2-SNAPSHOT</version>
     <description>Restricts VoxelSniper to the player's plots in JustPlots</description>
     
     <name>JustPlots-VoxelSniper</name>
@@ -32,7 +32,7 @@
         </repository>
         <repository>
             <id>justplots-repo</id>
-            <url>https://raw.githubusercontent.com/PureGero/JustPlots/repository/</url>
+            <url>https://repo.clojars.org/</url>
         </repository>
     </repositories>
 
@@ -56,11 +56,18 @@
         </dependency>
         <dependency>
             <groupId>net.justminecraft.plots</groupId>
-            <artifactId>JustPlots</artifactId>
-            <version>0.9.5</version>
-            <scope>provided</scope>
+            <artifactId>justplots</artifactId>
+            <version>0.9.7-SNAPSHOT</version>
         </dependency>
     </dependencies>
+
+    <distributionManagement>
+        <repository>
+            <id>clojars</id>
+            <name>Clojars repository</name>
+            <url>https://repo.clojars.org</url>
+        </repository>
+    </distributionManagement>
     
     <build>
         <defaultGoal>clean package</defaultGoal>

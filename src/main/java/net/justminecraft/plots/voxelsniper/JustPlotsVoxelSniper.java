@@ -4,6 +4,7 @@ import com.thevoxelbox.voxelsniper.VoxelProfileManager;
 import com.thevoxelbox.voxelsniper.VoxelSniper;
 import com.thevoxelbox.voxelsniper.event.SniperBrushSizeChangedEvent;
 import com.thevoxelbox.voxelsniper.snipe.SnipeData;
+import net.justminecraft.plots.bstats.bukkit.Metrics;
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -39,6 +40,8 @@ public class JustPlotsVoxelSniper extends JavaPlugin implements Listener {
 
         // Let us handle the interact event ;)
         PlayerInteractEvent.getHandlerList().unregister(VoxelSniper.getInstance());
+        
+        new Metrics(this, 10956);
     }
 
     private void injectVoxelProfileManager() {
